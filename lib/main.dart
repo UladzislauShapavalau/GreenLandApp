@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _pages = [
     const TodayPage(),
-    const MyPlantsPage(), // Заглушка или ваша страница "My Plants"
+    const MyPlantsPage(),
   ];
 
   // Эта функция будет вызываться при нажатии на элементы BottomNavigationBar
@@ -123,8 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
         automaticallyImplyLeading:
             false, // Убираем автоматическую кнопку "назад"
         title: leadingWidget, // Лого и название слева
-        titleSpacing:
-            0, // Убираем отступ по умолчанию для title, если leadingWidget используется
+        titleSpacing: 0,
         actions: _selectedPageIndex == 0
             ? [
                 // Иконки действий справа, только для Today
