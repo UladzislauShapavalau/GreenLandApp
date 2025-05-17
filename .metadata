@@ -1,0 +1,36 @@
+# This file tracks properties of this Flutter project.
+# Used by Flutter tool to assess capabilities and perform upgrades etc.
+#
+# This file should be version controlled and should not be manually edited.
+
+version:
+  revision: "63634c25ad41e24d06fc62e9d22072421085ce45"
+  channel: "master"
+
+project_type: app
+
+# Tracks metadata for the flutter migrate command
+migration:
+  platforms:
+    - platform: root
+      create_revision: 63634c25ad41e24d06fc62e9d22072421085ce45
+      base_revision: 63634c25ad41e24d06fc62e9d22072421085ce45
+    - platform: android
+      create_revision: 63634c25ad41e24d06fc62e9d22072421085ce45
+      base_revision: 63634c25ad41e24d06fc62e9d22072421085ce45
+    - platform: ios
+      create_revision: 63634c25ad41e24d06fc62e9d22072421085ce45
+      base_revision: 63634c25ad41e24d06fc62e9d22072421085ce45
+    - platform: web
+      create_revision: 63634c25ad41e24d06fc62e9d22072421085ce45
+      base_revision: 63634c25ad41e24d06fc62e9d22072421085ce45
+
+  # User provided section
+
+  # List of Local paths (relative to this file) that should be
+  # ignored by the migrate tool.
+  #
+  # Files that are not part of the templates will be ignored by default.
+  unmanaged_files:
+    - 'lib/main.dart'
+    - 'ios/Runner.xcodeproj/project.pbxproj'

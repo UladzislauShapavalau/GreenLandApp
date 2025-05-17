@@ -1,0 +1,1088 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Plants
+            description: Lab
+            version: 1.0.0
+        security:
+            - Bearer: []
+        components:
+            securitySchemes:
+                Bearer:
+                    type: http
+                    scheme: bearer
+            schemas:
+                ApiError:
+                    description: Error
+                    type: object
+                    properties:
+                        code:
+                            description: Code error
+                            type: number
+                        message:
+                            description: Error message text
+                            type: string
+                RegisterApiSchema:
+                    description: API schema for user registration
+                    type: object
+                    properties:
+                        name:
+                            description: 'User name'
+                            type: string
+                        email:
+                            description: 'Email'
+                            type: string
+                        password:
+                            description: 'Password'
+                            type: string
+                LoginApiSchema:
+                    description: API schema for user login
+                    type: object
+                    properties:
+                        email:
+                            description: 'Email'
+                            type: string
+                        password:
+                            description: 'Password'
+                            type: string
+                LoginApiAnswerSchema:
+                    description: API answer schema of user login
+                    type: object
+                    properties:
+                        token:
+                            description: 'JWT'
+                            type: string
+                ReminderTypeApiSchema:
+                    description: API schema reminder type
+                    type: object
+                    properties:
+                        id:
+                            description: 'ID'
+                            type: string
+                        name:
+                            description: 'Name'
+                            type: string
+                CreateReminderTypeApiSchema:
+                    description: API schema create reminder type
+                    type: object
+                    properties:
+                        name:
+                            description: 'Name'
+                            type: string
+                UpdateReminderTypeApiSchema:
+                    description: API schema update reminder type
+                    type: object
+                    properties:
+                        name:
+                            description: 'Name'
+                            type: string
+                PlantTypeApiSchema:
+                    description: API schema plant type
+                    type: object
+                    properties:
+                        id:
+                            description: 'ID'
+                            type: string
+                        name:
+                            description: 'Name'
+                            type: string
+                CreatePlantTypeApiSchema:
+                    description: API schema create plant type
+                    type: object
+                    properties:
+                        name:
+                            description: 'Name'
+                            type: string
+                UpdatePlantTypeApiSchema:
+                    description: API schema update plant type
+                    type: object
+                    properties:
+                        name:
+                            description: 'Name'
+                            type: string
+                LocationApiSchema:
+                    description: API schema location
+                    type: object
+                    properties:
+                        name:
+                            description: 'Name'
+                            type: string
+                        user:
+                            description: 'Owner ID'
+                            type: string
+                CreateLocationApiSchema:
+                    description: API schema create location
+                    type: object
+                    properties:
+                        name:
+                            description: 'Name'
+                            type: string
+                UpdateLocationApiSchema:
+                    description: API schema update location
+                    type: object
+                    properties:
+                        name:
+                            description: 'Name'
+                            type: string
+                PlantApiSchema:
+                    description: API schema plant
+                    type: object
+                    properties:
+                        id:
+                            description: 'Plant ID'
+                            type: string
+                        name:
+                            description: 'Name'
+                            type: string
+                        nickname:
+                            description: 'Nickname'
+                            type: string
+                        adoptionDate:
+                            description: 'Adoption date'
+                            type: string
+                        description:
+                            description: 'Description'
+                            type: string
+                        image:
+                            description: 'Image (base64)'
+                            type: string
+                        user:
+                            description: 'Owner ID'
+                            type: string
+                        location:
+                            description: 'Location ID'
+                            type: string
+                        type:
+                            description: 'Plant type ID'
+                            type: string
+                        reminders:
+                            description: 'Plant type ID'
+                            type: array
+                            items:
+                                $ref: '#/components/schemas/ReminderInPlantApiSchema'
+                PlantInListApiSchema:
+                    description: API schema plant
+                    type: object
+                    properties:
+                        id:
+                            description: 'Plant ID'
+                            type: string
+                        name:
+                            description: 'Name'
+                            type: string
+                        nickname:
+                            description: 'Nickname'
+                            type: string
+                        adoptionDate:
+                            description: 'Adoption date'
+                            type: string
+                        description:
+                            description: 'Description'
+                            type: string
+                        image:
+                            description: 'Image (base64)'
+                            type: string
+                        user:
+                            description: 'Owner ID'
+                            type: string
+                        location:
+                            description: 'Location ID'
+                            type: string
+                        type:
+                            description: 'Plant type ID'
+                            type: string
+                CreatePlantApiSchema:
+                    description: API schema create plant
+                    type: object
+                    properties:
+                        name:
+                            description: 'Name'
+                            type: string
+                        nickname:
+                            description: 'Nickname'
+                            type: string
+                        adoptionDate:
+                            description: 'Adoption date'
+                            type: string
+                        description:
+                            description: 'Description'
+                            type: string
+                        image:
+                            description: 'Image (base64)'
+                            type: string
+                        location:
+                            description: 'Location ID'
+                            type: string
+                        type:
+                            description: 'Plant type ID'
+                            type: string
+                UpdatePlantApiSchema:
+                    description: API schema update plant
+                    type: object
+                    properties:
+                        name:
+                            description: 'Name'
+                            type: string
+                        nickname:
+                            description: 'Nickname'
+                            type: string
+                        adoptionDate:
+                            description: 'Adoption date'
+                            type: string
+                        description:
+                            description: 'Description'
+                            type: string
+                        image:
+                            description: 'Image (base64)'
+                            type: string
+                        location:
+                            description: 'Location ID'
+                            type: string
+                        type:
+                            description: 'Plant type ID'
+                            type: string
+                ReminderApiSchema:
+                    description: API schema reminder
+                    type: object
+                    properties:
+                        id:
+                            description: 'Reminder ID'
+                            type: string
+                        cycle:
+                            description: 'Cycle'
+                            type: number
+                        startExecution:
+                            description: 'Start execution'
+                            type: string
+                        type:
+                            description: 'Reminder type ID'
+                            type: string
+                        user:
+                            description: 'Owner ID'
+                            type: string
+                        plant:
+                            description: 'Plant ID'
+                            type: string
+                ReminderInPlantApiSchema:
+                    description: API schema reminder
+                    type: object
+                    properties:
+                        id:
+                            description: 'Reminder ID'
+                            type: string
+                        cycle:
+                            description: 'Cycle'
+                            type: number
+                        startExecution:
+                            description: 'Start execution'
+                            type: string
+                        type:
+                            description: 'Reminder type ID'
+                            type: string
+                CreateReminderApiSchema:
+                    description: API schema create reminder
+                    type: object
+                    properties:
+                        cycle:
+                            description: 'Cycle'
+                            type: number
+                        startExecution:
+                            description: 'Start execution'
+                            type: string
+                        type:
+                            description: 'Reminder type ID'
+                            type: string
+                        plant:
+                            description: 'Plant ID'
+                            type: string
+                UpdateReminderApiSchema:
+                    description: API schema update reminder
+                    type: object
+                    properties:
+                        cycle:
+                            description: 'Cycle'
+                            type: number
+                        startExecution:
+                            description: 'Start execution'
+                            type: string
+                        type:
+                            description: 'Reminder type ID'
+                            type: string
+                        plant:
+                            description: 'Plant ID'
+                            type: string
+
+        paths:
+            # security
+            '/api/register':
+                post:
+                    operationId: post_api.security.register
+                    summary: Register user
+                    tags: [Security]
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/RegisterApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+            '/api/login':
+                post:
+                    operationId: post_api.security.login
+                    summary: Login user
+                    tags: [Security]
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/LoginApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                    $ref: '#/components/schemas/LoginApiAnswerSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+            # reminder type
+            '/api/reminder-types':
+                get:
+                    operationId: get_api.reminder_type.index
+                    summary: Get all reminder types
+                    tags: [Reminder type]
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        type: array
+                                        items:
+                                            $ref: '#/components/schemas/ReminderTypeApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                post:
+                    operationId: post_api.reminder_type.create
+                    summary: Create reminder type
+                    tags: [Reminder type]
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/CreateReminderTypeApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ReminderTypeApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+            '/api/reminder-types/{id}':
+                get:
+                    operationId: get_api.reminder_type.details
+                    summary: Reminder type details
+                    tags: [Reminder type]
+                    parameters:
+                        - name: id
+                          in: path
+                          required: true
+                          description: Reminder type ID
+                          schema:
+                              type: string
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ReminderTypeApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                put:
+                    operationId: put_api.reminder_type.update
+                    summary: Update reminder type
+                    tags: [Reminder type]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Reminder type ID
+                            schema:
+                                type: string
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/UpdateReminderTypeApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ReminderTypeApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                delete:
+                    operationId: delete_api.reminder_type.delete
+                    summary: Delete reminder type
+                    tags: [Reminder type]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Reminder type ID
+                            schema:
+                                type: string
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                    $ref: '#/components/schemas/ReminderTypeApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+            # plant type
+            '/api/plant-types':
+                get:
+                    operationId: get_api.plant_type.index
+                    summary: Get all plant types
+                    tags: [Plant type]
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        type: array
+                                        items:
+                                            $ref: '#/components/schemas/PlantTypeApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                post:
+                    operationId: post_api.plant_type.create
+                    summary: Create plant type
+                    tags: [Plant type]
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/CreatePlantTypeApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/PlantTypeApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+            '/api/plant-types/{id}':
+                get:
+                    operationId: get_api.plant_type.details
+                    summary: Plant type details
+                    tags: [Plant type]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Plant type ID
+                            schema:
+                                type: string
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/PlantTypeApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                put:
+                    operationId: put_api.plant_type.update
+                    summary: Update plant type
+                    tags: [Plant type]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Plant type ID
+                            schema:
+                                type: string
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/UpdatePlantTypeApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/PlantTypeApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                delete:
+                    operationId: delete_api.plant_type.delete
+                    summary: Delete plant type
+                    tags: [Plant type]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Plant type ID
+                            schema:
+                                type: string
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/PlantTypeApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+            # location
+            '/api/locations':
+                get:
+                    operationId: get_api.locations.index
+                    summary: Get user locations
+                    tags: [Location]
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        type: array
+                                        items:
+                                            $ref: '#/components/schemas/LocationApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                post:
+                    operationId: post_api.locations.create
+                    summary: Create location
+                    tags: [Location]
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/CreateLocationApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/LocationApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+            '/api/locations/{id}':
+                get:
+                    operationId: get_api.locations.details
+                    summary: Location details
+                    tags: [Location]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Location ID
+                            schema:
+                                type: string
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/LocationApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                put:
+                    operationId: put_api.locations.update
+                    summary: Update location
+                    tags: [Location]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Location ID
+                            schema:
+                                type: string
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/UpdateLocationApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/LocationApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                delete:
+                    operationId: delete_api.locations.delete
+                    summary: Delete location
+                    tags: [Location]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Location ID
+                            schema:
+                                type: string
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/LocationApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+            # plant
+            '/api/plants':
+                get:
+                    operationId: get_api.plants.index
+                    summary: Get user plants
+                    tags: [Plant]
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        type: array
+                                        items:
+                                            $ref: '#/components/schemas/PlantInListApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                post:
+                    operationId: post_api.plants.create
+                    summary: Create plant
+                    tags: [Plant]
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/CreatePlantApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/PlantApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+            '/api/plants/{id}':
+                get:
+                    operationId: get_api.plants.details
+                    summary: Plant details
+                    tags: [Plant]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Plant ID
+                            schema:
+                                type: string
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/PlantApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                put:
+                    operationId: put_api.plants.update
+                    summary: Update plant
+                    tags: [Plant]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Plant ID
+                            schema:
+                                type: string
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/UpdatePlantApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/PlantApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                delete:
+                    operationId: delete_api.plants.delete
+                    summary: Delete plant
+                    tags: [Plant]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Plant ID
+                            schema:
+                                type: string
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/PlantApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+            # reminder
+            '/api/reminders':
+                get:
+                    operationId: get_api.reminders.index
+                    summary: Get user reminders
+                    tags: [Reminder]
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        type: array
+                                        items:
+                                            $ref: '#/components/schemas/ReminderApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                post:
+                    operationId: post_api.reminders.create
+                    summary: Create reminder
+                    tags: [Reminder]
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/CreateReminderApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ReminderApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+            '/api/reminders/{id}':
+                get:
+                    operationId: get_api.reminders.details
+                    summary: Reminder details
+                    tags: [Reminder]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Reminder ID
+                            schema:
+                                type: string
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ReminderApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                put:
+                    operationId: put_api.reminders.update
+                    summary: Update reminder
+                    tags: [Reminder]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Reminder ID
+                            schema:
+                                type: string
+                    requestBody:
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/UpdateReminderApiSchema'
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ReminderApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                delete:
+                    operationId: delete_api.reminders.delete
+                    summary: Delete reminder
+                    tags: [Reminder]
+                    parameters:
+                        -
+                            name: id
+                            in: path
+                            required: true
+                            description: Reminder ID
+                            schema:
+                                type: string
+                    responses:
+                        200:
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ReminderApiSchema'
+                        400:
+                            description: Bad request
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+                        404:
+                            description: Not found
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/ApiError'
+    areas:
+        path_patterns:
+            - ^/api(?!/doc$)

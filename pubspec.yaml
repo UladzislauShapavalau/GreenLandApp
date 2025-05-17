@@ -1,0 +1,47 @@
+name: greenland_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.5.0-47.0.dev <4.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.8
+  equatable: ^2.0.5
+  file_picker: ^5.2.1
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.10+1
+  http: ^1.2.1
+  image_picker: ^1.1.1
+  image_picker_for_web: ^3.0.4
+  intl: ^0.20.2
+  permission_handler: ^10.0.0
+  permission_handler_web: ^0.0.2
+  shared_preferences: ^2.2.3
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  assets:
+    - assets/icons/
+    - assets/icons/registrationplant.png
+    - assets/icons/background_pic_paporotnik2.png
+    - assets/images/plant_placeholder.png
+
+    
+  fonts:
+    - family: Manrope
+      fonts:
+        - asset: assets/fonts/Manrope-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Manrope-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Manrope-Medium.ttf
+          weight: 500
+  generate: true
+  uses-material-design: true
